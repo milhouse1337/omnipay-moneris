@@ -133,7 +133,8 @@ class PurchaseRequest extends AbstractRequest
                 $res_purchase_cc = $request->addChild('res_purchase_cc');
                 $res_purchase_cc->addChild('data_key', $this->getCardReference());
                 $res_purchase_cc->addChild('order_id', $this->getOrderNumber());
-                $res_purchase_cc->addChild('cust_id', 'Transaction_'.$this->getOrderNumber());
+                // $res_purchase_cc->addChild('cust_id', 'Transaction_'.$this->getOrderNumber());
+                $res_purchase_cc->addChild('cust_id', $this->getDescription());
                 $res_purchase_cc->addChild('amount', $this->getAmount());
                 $res_purchase_cc->addChild('crypt_type', $this->getCryptType());
 
@@ -158,7 +159,8 @@ class PurchaseRequest extends AbstractRequest
                 $purchase->addChild('pan', $card->getNumber());
                 $purchase->addChild('expdate', $card->getExpiryDate('ym'));
                 $purchase->addChild('order_id', $this->getOrderNumber());
-                $purchase->addChild('cust_id', 'Transaction_'.$this->getOrderNumber());
+                // $purchase->addChild('cust_id', 'Transaction_'.$this->getOrderNumber());
+                $res_purchase_cc->addChild('cust_id', $this->getDescription());
                 $purchase->addChild('amount', $this->getAmount());
                 $purchase->addChild('crypt_type', $this->getCryptType());
 
