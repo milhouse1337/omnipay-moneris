@@ -160,7 +160,7 @@ class PurchaseRequest extends AbstractRequest
                 $purchase->addChild('expdate', $card->getExpiryDate('ym'));
                 $purchase->addChild('order_id', $this->getOrderNumber());
                 // $purchase->addChild('cust_id', 'Transaction_'.$this->getOrderNumber());
-                $res_purchase_cc->addChild('cust_id', $this->getDescription());
+                $purchase->addChild('cust_id', $this->getDescription());
                 $purchase->addChild('amount', $this->getAmount());
                 $purchase->addChild('crypt_type', $this->getCryptType());
 
